@@ -63,7 +63,7 @@
 
 	//load topojson
 	d3.queue()
-	  .defer(d3.json,"world.topojson")
+	  .defer(d3.json,"world.json")
 	  .await(ready)
 	//create projection geoMercator
 	var projection = d3.geoMercator()
