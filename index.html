@@ -1,0 +1,91 @@
+<html>
+
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+		<title>Earthquakes and Volcanoes</title>
+	</head>
+
+	<body style="font-family:ubuntu;">
+
+		<h1 style="text-align:center;margin-top: 25px;margin-bottom: 30px;font-family:ubuntu;font-size:280%;color:#444444"><i>100  years</i>  of  Earthquakes and Volcanoes</h1>
+
+		<table width = 80% align = center style="text-align:center;margin-top: 25px;margin-bottom: 30px;"><tr><th>
+		<p style="text-align:center;margin-top: 20px;margin-bottom: 20px;margin-left: 60px;margin-right: 60px;font-family:ubuntu;font-size:90%;color:#444444">
+			This is an exploratory data visualization created to observe the earthquakes and volcanic events recorded from January,1919 till October,2019. The dataset for earthquake is taken from the <a href="https://earthquake.usgs.gov/earthquakes">USGS</a> database. The <a href="https://www.ngdc.noaa.gov/hazard/volcano.shtml">NOAA</a> database is used for volcanic data and information. 
+		</p></th></tr>
+		</table>
+
+		<div id="tooltip" style="font-family:ubuntu; font-size:80%;">
+			<span id="name" class="info">val</span><br>
+			<span id="date" class="info"></span><br>
+			<span id="location" class="info"></span><br>
+			<span id="type" class="info"></span><br>
+			<span id="vei" class="info"></span><br>
+			<span id="death" class="info"></span><br>
+			<span id="injuries" class="info"></span><br>
+			<span id="damage" class="info"></span><br>
+		</div>
+
+		<table border=0 align = center>
+		<tr>
+			<th width=10% style="font-size:70%;margin-top: 0;color:#444444">10<br>
+				<svg width="20" height="100" opacity=0.5>
+					<defs>
+			            <linearGradient id="gradient" gradientTransform="rotate(90)">         
+			            	<!--gradientTransform="rotate(45)"-->
+			                <stop offset="0%" stop-color="#FF0000"></stop>  
+			                <stop offset="23%" stop-color="#FF7F00"></stop>
+			                <stop offset="40%" stop-color="#FFFF00"></stop>
+			                <stop offset="60%" stop-color="#00FF00"></stop>
+			                <stop offset="80%" stop-color="#0000FF"></stop> 
+			                <stop offset="100%" stop-color="#8B00FF"></stop>
+			            </linearGradient>
+			        </defs>
+	  			<rect width="20" height="100" style="text-align:center;" fill="url(#gradient)"/>
+				</svg><br>4.5</th>
+			<th><div id="world-map" style="text-align: center;"></div></th>
+		</tr>
+		</table>
+
+		<div class="slidecontainer" class="navigation" style="font-family:ubuntu;text-align: center; margin-top: 10px;margin-bottom: 0px;">
+
+		<table align = "center" style="width:800px;margin-top: 20px;margin-bottom: 20px;" border=1>
+			<tr>
+				<td width = 50%>
+		<div id="controls" style="text-align:center;font-family:ubuntu;font-size:100%;color:#444444;margin-top: 10px;margin-bottom: 10px;">
+		  <span>
+		    <label style="margin-right: 10px;"><input id="earthquake" type="radio" name="grouping" value="earthquake" >Earthquakes  </label>
+		    <label style="margin-right: 10px;"><input id="volcano" type="radio" name="grouping" value="volcano" >Volcanoes  </label>
+		    <label style="margin-right: 10px;"><input id="both" type="radio" name="grouping" value="both" checked>Both  </label>
+		  </span>
+		</div> </td>
+		<td>
+    	  <p style="margin-top: 10px;margin-bottom: 10px;text-align:center;">Year : <span id="demo"></span></p>
+    	</td>
+    	</tr>
+    	</table>
+		  <input type="range" min="1919" max="2019" value="2019" class="slider" id="myRange" style="visibility: hidden">
+
+		  <table style="margin-top: 0px; margin-bottom: 20px; width:1000px; text-align: center;font-family:ubuntu;" align = "center" >
+		  	<tr>	
+		  		<th><label class="bar" id="2019"></label></th>
+			</tr>
+			<tr>
+		  		<td style="margin-left: 0px;margin-right: 50px;text-align: left;"><label class="hint" id="hint1919"></label></td>
+		  	</tr>
+		  </table>	
+
+		</div>
+
+		<p style="text-align:center;margin-top: 40px;margin-bottom: 0px;font-family:ubuntu;font-size:70%;color:#444444"><span>&#169;</span>Eeshani Mondal
+		</p>
+		
+		<script src="GeoViz.js"></script>
+
+	</body>
+</html>
+
